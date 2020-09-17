@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.leo.ware.dao.WareProductDao">
+
+    <update id="lockProduct">
+        update `ware` set lock_stock = lock_stock+#{amount} where product_id=#{productId} and stock-lock_stock>=#{amount}
+    </update>
+    <update id="releaseStock">
+        update `ware` set lock_stock = lock_store-#{amount} where product_id=#{productId}
+    </update>
+
+</mapper>
